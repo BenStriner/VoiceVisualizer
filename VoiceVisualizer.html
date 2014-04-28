@@ -1,0 +1,86 @@
+
+<html>
+
+	<head>
+		<script src="jquery-2.1.0.min.js"></script>
+		<link href="sidebar.css" rel="stylesheet">
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+
+	</head>
+
+	<body>
+	
+
+		    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"><a href="#">Home</a>
+                </li>
+                <li><a href="#">Warmups</a>
+                </li>
+                <li><a href="#">Learn and Review</a>
+                </li>
+                <li><a href="#">Sheet Music</a>
+                </li>
+                <li><a href="#">Notebook</a>
+                </li>
+                <li><a href="#">Settings</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <div class="content-header">
+                <h1>
+                    <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
+                    Spectrograph
+                </h1>
+            </div>
+            <!-- Keep all page content within the page-content inset div! -->
+            <div class="page-content inset">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="lead">
+
+                        	<table style="width:300px">
+							<tr>
+							  <td>Name1</td>
+							  <td> Spectrograph1</td>		
+							  </tr>
+							<tr>
+							  <td>Name2</td>
+							  <td>Spectrograph1</td>		
+							</tr>
+							<tr>
+							  <td>Score</td>
+							  <td>Score</td>		
+							</tr>
+							</table>
+
+							<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+							<button type="button" class="btn btn-primary">Primary</button>
+                    </div>
+              
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Custom JavaScript for the Menu Toggle -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+    </script>
+
+	</body>
+</html>
