@@ -22,6 +22,9 @@
 
 <script type="text/javascript">
 
+var width = 800;
+var height = 512;
+
     // create the audio context (chrome only for now)
     if (! window.AudioContext) {
         if (! window.webkitAudioContext) {
@@ -42,9 +45,9 @@
 
     // create a temp canvas we use for copying
     var tempCanvas = document.createElement("canvas"),
-    tempCtx = tempCanvas.getContext("2d");
-    tempCanvas.width=800;
-    tempCanvas.height=512;
+        tempCtx = tempCanvas.getContext("2d");
+    tempCanvas.width=width;
+    tempCanvas.height=height;
 
     // used for color distribution
     var hot = new chroma.ColorScale({
@@ -133,7 +136,7 @@ var url = "http://www.lunyang.comoj.com/visualizing the voice/Angel.mp3";
         // copy the current canvas onto the temp canvas
         var canvas = document.getElementById("canvas");
 
-        tempCtx.drawImage(canvas, 0, 0, 800, 512);
+        tempCtx.drawImage(canvas, 0, 0, width, height);
 
         // iterate over the elements from the array
         for (var i = 0; i < array.length; i++) {
@@ -142,13 +145,13 @@ var url = "http://www.lunyang.comoj.com/visualizing the voice/Angel.mp3";
             ctx.fillStyle = hot.getColor(value).hex();
 
             // draw the line at the right side of the canvas
-            ctx.fillRect(800 - 1, 512 - i, 1, 1);
+            ctx.fillRect(width - 1, height - i, 1, 1);
         }
 
         // set translate on the canvas
         ctx.translate(-1, 0);
         // draw the copied image
-        ctx.drawImage(tempCanvas, 0, 0, 800, 512, 0, 0, 800, 512);
+        ctx.drawImage(tempCanvas, 0, 0, width, height, 0, 0, width, height);
 
         // reset the transformation matrix
         ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -159,3 +162,6 @@ var url = "http://www.lunyang.comoj.com/visualizing the voice/Angel.mp3";
 
 </body>
 </html>
+<!-- Hosting24 Analytics Code -->
+<script type="text/javascript" src="http://stats.hosting24.com/count.php"></script>
+<!-- End Of Analytics Code -->
