@@ -33,7 +33,7 @@ var height = 512;
         colors:['#000000', '#ff0000', '#ffff00', '#ffffff'],
         positions:[0, .25, .75, 1],
         mode:'rgb',
-        limits:[0, 300]
+        limits:[0, 1000]
     });
 
 
