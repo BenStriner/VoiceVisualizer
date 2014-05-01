@@ -7,6 +7,27 @@
         <script type="text/javascript" src="jquery-1.8.0.min.js"></script>
         <script type="text/javascript" src="chroma.js"></script>
         <title>Loading and playing a sound with the Web Audio API</title>
+
+        <!-- SlickGrid
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+          <link rel="stylesheet" href="../slick.grid.css" type="text/css"/>
+          <link rel="stylesheet" href="../css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css"/>
+          <link rel="stylesheet" href="examples.css" type="text/css"/>
+          <link rel="stylesheet" href="../controls/slick.columnpicker.css" type="text/css"/>
+          <style>
+            .slick-cell-checkboxsel {
+              background: #f0f0f0;
+              border-right-color: silver;
+              border-right-style: solid;
+            }
+
+            .myDIV{
+              position:relative;
+              top:400px;
+              left:500px;
+            }
+          </style>
+          -->
     </head>
 
     <body>
@@ -44,7 +65,10 @@
                     <div class="col-md-12">
                         <p class="lead">
 
-                            <div id = "reference">
+                            <table style="width:800px">
+                            <tr>
+                          
+                              <td> <div id = "reference">
                                 <p id = "name">Reference Recording</p>
                                 <div id = "button_canvas_ref">
                                     <input type="file" accept="audio/*">
@@ -53,9 +77,11 @@
                                         <button id = "ref3" onclick="stop()" disabled>Stop</button>
                                         <br><br>
                                         <canvas id="canvas_refe" width="800" height="512" style="display: block; background-color: black ;"></canvas>
-                                </div>
-                            </div>
-                            <div id = "user">
+                                </div></td>       
+                              </tr>
+                            <tr>
+                        
+                              <td><div id = "user">
                                 <p id = "name">User Recording</p>
                                 <div id = "button_canvas_usr">
                                     <input type="file" accept="audio/*">
@@ -64,18 +90,43 @@
                                         <button id = "usr3" onclick="stop()" disabled>Stop</button>
                                         <br><br>
                                         <canvas id="canvas_usr" width="800" height="512" style="display: block; background-color: black ;"></canvas>
-                                </div>
-                            </div>
-                            <div id = "score">
-                            </div>
+                                </div></td>        
+                            </tr>
+                            <tr>
+                             
+                              <td>
+                                
+                                <canvas id="myCanvas" width="800" height="80" style="border:1px solid #d3d3d3;">
+                               </canvas>
+
+                            <script>
+                                var img = new Image();
+                                img.src = "staff.png";
+                                img.onload=function(){
+                                    var c=document.getElementById("myCanvas");
+                                  var ctx=c.getContext("2d");
+                                  ctx.drawImage(img,0,0,500,60);
+                                };
+
+                                var c=document.getElementById('myCanvas');
+                                var ctx=c.getContext('2d');
+                                ctx.fillStyle='#000000';
+                                ctx.fillRect(20,20,10,10);
+                              </script>
+
+                              </td>        
+                            </tr>
+                            </table>
+
+                        
+                            <br>
+                             <canvas id="gridCanvas" width="800" height="400" style="border:1px solid #d3d3d3;">
+
+                            </canvas>
+                            <p> ^ above is where the grid to choose songs will be. Slickgrid code commented out, but trying to make it work  </p>
 
 
 
-
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <button type="button" class="btn btn-primary">Primary</button>
-
-                            <button type="button" class="btn btn-primary">Primary</button>
                     </div>
               
                 </div>
@@ -93,6 +144,81 @@
     });
     </script>
     <script src="audio.js"></script>
+
+    
+
+
+    <!--SLICKGRID
+    <div id="myDIV"> <div style="width:600px;">
+    <div id="myGrid" style="width:100%;height:500px;" position=""></div>
+  </div>
+
+
+</div>
+
+    <script src="slickfolder/lib/firebugx.js"></script>
+
+    <script src="slickfolder/lib/jquery-1.7.min.js"></script>
+    <script src="slickfolder/lib/jquery-ui-1.8.16.custom.min.js"></script>
+    <script src="slickfolder/lib/jquery.event.drag-2.2.js"></script>
+
+    <script src="slickfolder/slick.core.js"></script>
+    <script src="slickfolder/plugins/slick.checkboxselectcolumn.js"></script>
+    <script src="slickfolder/plugins/slick.autotooltips.js"></script>
+    <script src="slickfolder/plugins/slick.cellrangedecorator.js"></script>
+    <script src="slickfolder/plugins/slick.cellrangeselector.js"></script>
+    <script src="slickfolder/plugins/slick.cellcopymanager.js"></script>
+    <script src="slickfolder/plugins/slick.cellselectionmodel.js"></script>
+    <script src="slickfolder/plugins/slick.rowselectionmodel.js"></script>
+    <script src="slickfolder/controls/slick.columnpicker.js"></script>
+    <script src="slickfolder/slick.formatters.js"></script>
+    <script src="slickfolder/slick.editors.js"></script>
+    <script src="slickfolder/slick.grid.js"></script>
+
+
+<script>
+  var grid;
+  var data = [];
+  var options = {
+    editable: true,
+    enableCellNavigation: true,
+    asyncEditorLoading: false,
+    autoEdit: false
+  };
+  var columns = [];
+
+  $(function () {
+
+    for (var i = 0; i < 100; i++) {
+      var d = (data[i] = {});
+      d[0] = "Row " + i;
+    }
+
+    var checkboxSelector = new Slick.CheckboxSelectColumn({
+      cssClass: "slick-cell-checkboxsel"
+    });
+
+    columns.push(checkboxSelector.getColumnDefinition());
+
+    for (var i = 0; i < 5; i++) {
+      columns.push({
+        id: i,
+        name: String.fromCharCode("A".charCodeAt(0) + i),
+        field: i,
+        width: 100,
+        editor: Slick.Editors.Text
+      });
+    }
+
+    grid = new Slick.Grid("#myGrid", data, columns, options);
+    grid.setSelectionModel(new Slick.RowSelectionModel({selectActiveRow: false}));
+    grid.registerPlugin(checkboxSelector);
+
+    var columnpicker = new Slick.Controls.ColumnPicker(columns, grid, options);
+  })
+</script> 
+
+end slickgrid-->
 
 
     </body>
