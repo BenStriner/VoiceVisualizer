@@ -61,7 +61,7 @@ var height = 512;
         // setup a analyzer
         analyser = context.createAnalyser();
         analyser.smoothingTimeConstant = 0;
-        analyser.fftSize = 1024;
+        analyser.fftSize = 2048;
 
         // create a buffer source node
         sourceNode = context.createBufferSource();
