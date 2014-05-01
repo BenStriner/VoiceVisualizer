@@ -54,12 +54,12 @@ var height = 512;
         colors:['#000000', '#ff0000', '#ffff00', '#ffffff'],
         positions:[0, .25, .75, 1],
         mode:'rgb',
-        limits:[0, 300]
+        limits:[0, 1000]
     });
 
     // load the sound
     setupAudioNodes();
-var url = "http://www.lunyang.comoj.com/visualizing the voice/Angel.mp3";
+var url = "CallasLakmeIntro.mp3";
     loadSound(url);
 
 
@@ -74,7 +74,7 @@ var url = "http://www.lunyang.comoj.com/visualizing the voice/Angel.mp3";
         // setup a analyzer
         analyser = context.createAnalyser();
         analyser.smoothingTimeConstant = 0;
-        analyser.fftSize = 1024;
+        analyser.fftSize = 2048;
 
         // create a buffer source node
         sourceNode = context.createBufferSource();
@@ -151,7 +151,7 @@ var url = "http://www.lunyang.comoj.com/visualizing the voice/Angel.mp3";
         // set translate on the canvas
         ctx.translate(-1, 0);
         // draw the copied image
-        ctx.drawImage(tempCanvas, 0, 0, width, height, 0, 0, width, height);
+        ctx.drawImage(tempCanvas, 0, 0, width, height, 0, 0, width,height);
 
         // reset the transformation matrix
         ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -162,6 +162,4 @@ var url = "http://www.lunyang.comoj.com/visualizing the voice/Angel.mp3";
 
 </body>
 </html>
-<!-- Hosting24 Analytics Code -->
-<script type="text/javascript" src="http://stats.hosting24.com/count.php"></script>
-<!-- End Of Analytics Code -->
+
