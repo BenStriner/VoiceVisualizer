@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link href="sidebar.css" rel="stylesheet">
+        <!-- JavaScript -->
+        <script src="jquery-2.1.0.js"></script>
+        <script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+        <script type="text/javascript" src="chroma.js"></script>
+        <title>Loading and playing a sound with the Web Audio API</title>
+    </head>
+
+    <body>
+        <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"><a href="#">Home</a>
+                </li>
+                <li><a href="#">Warmups</a>
+                </li>
+                <li><a href="#">Learn and Review</a>
+                </li>
+                <li><a href="#">Sheet Music</a>
+                </li>
+                <li><a href="#">Notebook</a>
+                </li>
+                <li><a href="#">Settings</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <div class="content-header">
+                <h1>
+                    <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
+                    Spectrograph
+                </h1>
+            </div>
+            <!-- Keep all page content within the page-content inset div! -->
+            <div class="page-content inset">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="lead">
+
+                            <div id = "reference">
+                                <p id = "name">Reference Recording</p>
+                                <div id = "button_canvas_ref">
+                                    <input type="file" accept="audio/*">
+                                        <button id = "ref1" onclick="play()" disabled>Start</button>
+                                        <button id = "ref2" onclick="pause()" disabled>pause</button>
+                                        <button id = "ref3" onclick="stop()" disabled>Stop</button>
+                                        <br><br>
+                                        <canvas id="canvas_refe" width="800" height="512" style="display: block; background-color: black ;"></canvas>
+                                </div>
+                            </div>
+                            <div id = "user">
+                                <p id = "name">User Recording</p>
+                                <div id = "button_canvas_usr">
+                                    <input type="file" accept="audio/*">
+                                        <button id = "usr1" onclick="play()" disabled>Start</button>
+                                        <button id = "usr2" onclick="pause()" disabled>pause</button>
+                                        <button id = "usr3" onclick="stop()" disabled>Stop</button>
+                                        <br><br>
+                                        <canvas id="canvas_usr" width="800" height="512" style="display: block; background-color: black ;"></canvas>
+                                </div>
+                            </div>
+                            <div id = "score">
+                            </div>
+
+
+
+
+                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                            <button type="button" class="btn btn-primary">Primary</button>
+
+                            <button type="button" class="btn btn-primary">Primary</button>
+                    </div>
+              
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Custom JavaScript for the Menu Toggle -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+    </script>
+    <script src="audio.js"></script>
+
+
+    </body>
+</html>
