@@ -8,6 +8,7 @@
         <script type="text/javascript" src="chroma.js"></script>
         <title>Loading and playing a sound with the Web Audio API</title>
 
+        <!-- SlickGrid-->
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
           <link rel="stylesheet" href="../slick.grid.css" type="text/css"/>
           <link rel="stylesheet" href="../css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css"/>
@@ -124,8 +125,35 @@
                             </canvas>
                             <p> ^ above is where the grid to choose songs will be. Slickgrid code commented out, but trying to make it work  </p>
 
+                            <table id="table_files" style="border:1px solid #aaa;">
 
+                            </table>
+                            <script>
+                                $(document).ready(function(){
+                                    var ddd = [
+                                        ['a.mp3','blahblah','tak'],
+                                        ['a.mp3','blahblah','tak'],
+                                        ['a.mp3','blahblah','tak']
+                                    ];
+                                    for(var i=0;i<ddd.length;i++) {
+                                        var d = ddd[i];
+                                        console.log(d);
+                                        var html_tr = "<tr><td>"+d[0]+"</td><td>"+d[1]+"</td><td>"+d[2]+"</td></tr>";
+                                        var tr_element = $("<div></div>");
+                                        $("table#table_files").append(tr_element);
+                                    }
+                                });
+                            </script>
 
+<!-- 
+                            <table id="table_files">
+                                <tr>
+                                    <td><input type='check'></input></td>
+                                    <td>name</td>
+                                    <td>etc</td>
+                                </tr>
+                            </table>
+ -->
                     </div>
               
                 </div>
@@ -147,7 +175,7 @@
     
 
 
-    <!--SLICKGRID
+    <!--SLICKGRID-->
     <div id="myDIV"> <div style="width:600px;">
     <div id="myGrid" style="width:100%;height:500px;" position=""></div>
   </div>
@@ -217,7 +245,7 @@
   })
 </script> 
 
-end slickgrid-->
+<!--end slickgrid-->
 
 
     </body>

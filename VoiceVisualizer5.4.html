@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+         <!-- JavaScript -->
+      <script type="text/javascript"src="jquery-2.1.0.js"></script>
+      <script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+      <script type= "text/javascript" src="Visualizer.js"></script>
+      <script type="text/javascript" src="chroma.js"></script>
+      <script type="text/javascript"src="audio.js"></script>
+
+
+      <!-- CSS -->
+      <link rel="stylesheet" type="text/css" href="VisualizerStyle.css">
+      <link href="sidebar.css" rel="stylesheet">
+      
+    </head>
+
+    <body>
+        <div id="wrapper">
+
+            <!--sidebar-->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li><a href="home.html">Home</a>
+                </li>
+                <li><a href="warmupchoose.html">Warmups</a>
+                </li>
+                <li><a href="LearnChoose.html">Learn and Review</a>
+                </li>
+                <li><a href="notimplemented.html">Sheet Music</a>
+                </li>
+                <li><a href="notimplemented.html">Notebook</a>
+                </li>
+                <li><a href="notimplemented.html">Settings</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- Page content -->
+
+       <!-- Keep all page content within the page-content inset div! -->
+
+        <div id="page-content-wrapper">
+            <div class="content-header">
+                <h1>
+                    Spectrograph
+                </h1>
+
+            </div>
+    
+            <div class="page-content inset">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <p class="lead">
+
+                            <table style="width:800px">
+                              <tr>
+                            
+                                <td> 
+                                  <div id = "reference">
+                                    <p id = "name">Reference Recording</p>
+                                    <div id = "button_canvas_ref">
+                                        <input type="file" accept="audio/*">
+                                            <button id = "ref1" onclick="play()" disabled>Start</button>
+                                            <button id = "ref2" onclick="pause()" disabled>pause</button>
+                                            <button id = "ref3" onclick="stop()" disabled>Stop</button>
+                                            <br><br>
+                                            <canvas id="canvas_refe" width="800" height="512" style="display: block; background-color: black ;"></canvas>
+                                  </div>
+                                </td>       
+                              </tr>
+
+                              <tr>
+                          
+                                <td>
+                                  <div id = "user">
+                                    <p id = "name">User Recording</p>
+                                    <div id = "button_canvas_usr">
+                                        <input type="file" accept="audio/*">
+                                            <button id = "usr1" onclick="play()" disabled>Start</button>
+                                            <button id = "usr2" onclick="pause()" disabled>pause</button>
+                                            <button id = "usr3" onclick="stop()" disabled>Stop</button>
+                                            <br><br>
+                                            <canvas id="canvas_usr" width="800" height="512" style="display: block; background-color: black ;"></canvas>
+                                    </div>
+                                </td>        
+                              </tr>
+                              <script>
+                                    $("#menu-toggle").click(function(e) {
+                                        e.preventDefault();
+                                        $("#wrapper").toggleClass("active");
+                                    });
+                              </script
+                              
+                              <tr>
+                               
+                                <td>
+                                  
+                                  <canvas id="myCanvas" width="800" height="80" style="border:1px solid #d3d3d3;"></canvas>
+                                  <div id="myCanvas"> </div>
+
+                                </td>        
+
+                              </tr>
+
+                            </table>
+                            <br>
+
+                    </div>
+
+                    
+                     <div id="recordingsTable">
+                      <table>
+                              <tr>
+                                  <th></th>
+                                  <th>Recording</th>
+                                  <th>Created</th>
+                                  <th>Reference</th>
+                              </tr>
+
+                              <tr>
+                                  <td> <form><input type="checkbox"> </form></td>
+                                  <td>Bellsong_Teacher</td>
+                                  <td> 1/1/2014</td>
+                                  <td><label class="block"><input type="radio" name="radgroup" value="A"></label></td>
+                              </tr>
+
+                              <tr>
+                                  <td> <input type="checkbox">
+                                  <td> Bellsong_Me1</td>
+                                  <td> 1/1/2014</td>
+                                  <td> <label class="block"><input type="radio" name="radgroup" value="B"></label></td>
+                              </tr>
+
+                               <tr>
+                                  <td> <input type="checkbox">
+                                  <td> Bellsong_me2</td>
+                                  <td> 1/1/2014</td>
+                                  <td><label class="block"><input type="radio" name="radgroup" value="C"></label></td>
+                              </tr>
+                      </table>
+
+                  
+                    </div>
+
+              
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    // <!-- Custom JavaScript for the Menu Toggle -->
+    // <div id="menu-toggle"></div>
+ 
+        <!-- Custom JavaScript for the Menu Toggle -->
+    <script>
+      $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("active");
+      });
+      </script>
+      <script src="audio.js"></script>
+
+    </script>
+
+    </body>
+</html>
