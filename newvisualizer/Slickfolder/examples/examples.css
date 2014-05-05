@@ -1,14 +1,29 @@
 @import url('../slick-default-theme.css');
 
-* {
+/* {
   font-family: arial;
   font-size: 8pt;
 }
 
+
 body {
-  background: beige;
+  background: beige; 
   padding: 0;
   margin: 8px;
+}
+*/
+
+h1.spectrograph {
+color: red;
+font-size: 50;
+text-align: center;
+display: block;
+font-size: 2em;
+-webkit-margin-before: 0.67em;
+-webkit-margin-after: 0.67em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+font-weight: bold;
 }
 
 h2 {
