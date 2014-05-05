@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <title>SlickGrid example: CompositeEditor</title>
+
+      <link href="sidebar.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="VisualizerStyle.css">
+      <link rel="stylesheet" href="slickfolder/slick.grid.css" type="text/css"/>
+      <link rel="stylesheet" href="slickfolder/css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css"/>
+      <link rel="stylesheet" href="slickfolder/examples/examples.css" type="text/css"/>
+      <link rel="stylesheet" href="slickfolder/controls/slick.columnpicker.css" type="text/css"/>
+        <!-- JavaScript -->
+      <script src="jquery-2.1.0.js"></script>
+      <script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+      <script type="text/javascript" src="chroma.js"></script>
+      
+      <!-- scripts for slick grid -->
+      <script src="slickfolder/lib/firebugx.js"></script>
+
+      <script src="slickfolder/lib/jquery-1.7.min.js"></script>
+      <script src="slickfolder/lib/jquery-ui-1.8.16.custom.min.js"></script>
+      <script src="slickfolder/lib/jquery.event.drag-2.2.js"></script>
+      <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+      <script src="slickfolder/slick.core.js"></script>
+      <script src="slickfolder/plugins/slick.cellrangeselector.js"></script>
+      <script src="slickfolder/plugins/slick.cellselectionmodel.js"></script>
+      <script src="slickfolder/slick.formatters.js"></script>
+      <script src="slickfolder/slick.editors.js"></script>
+      <script src="slickfolder/slick.grid.js"></script>
+      <script src="slickfolder/slick.compositeeditor.js"></script>
+
+      <style>
+      .cell-title {
+        font-weight: bold;
+      }
+
+      .cell-effort-driven {
+        text-align: center;
+      }
+
+      .item-details-form {
+        z-index: 10000;
+        display: inline-block;
+        border: 1px solid black;
+        margin: 8px;
+        padding: 10px;
+        background: #efefef;
+        -moz-box-shadow: 0px 0px 15px black;
+        -webkit-box-shadow: 0px 0px 15px black;
+        box-shadow: 0px 0px 15px black;
+
+        position: absolute;
+        top: 10px;
+        left: 150px;
+      }
+
+      .item-details-form-buttons {
+        float: right;
+      }
+
+      .item-details-label {
+        margin-left: 10px;
+        margin-top: 20px;
+        display: block;
+        font-weight: bold;
+      }
+
+      .item-details-editor-container {
+        width: 200px;
+        height: 20px;
+        border: 1px solid silver;
+        background: white;
+        display: block;
+        margin: 10px;
+        margin-top: 4px;
+        padding: 0;
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+    </style>
+
+    </head>
+
+    <body>
+        <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li><a href="home.html">Home</a>
+                </li>
+                <li><a href="warmupchoose.html">Warmups</a>
+                </li>
+                <li><a href="LearnChoose.html">Learn and Review</a>
+                </li>
+                <li><a href="notimplemented.html">Sheet Music</a>
+                </li>
+                <li><a href="notimplemented.html">Notebook</a>
+                </li>
+                <li><a href="notimplemented.html">Tutorial</a>
+                </li>
+                </li>
+                <li><a href="notimplemented.html">Settings</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <div class="content-header">
+                <h1>
+                    <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
+                    Spectrograph
+                </h1>
+              
+            </div>
+            <!-- Keep all page content within the page-content inset div! -->
+            <div class="page-content inset">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="lead">
+
+                            <table style="width:800px">
+                            <tr>
+                          
+                              <td> <div id = "reference">
+                                <p id = "ref_name">Reference Recording</p>
+                                <div id = "button_canvas_ref">
+                                    <!--<input type="file" accept="audio/*"> -->
+                                        <button id = "ref1" onclick="play()" disabled>Start</button>
+                                        <button id = "ref2" onclick="pause()" disabled>pause</button>
+                                        <button id = "ref3" onclick="stop()" disabled>Stop</button>
+                                        <br><br>
+                                        <canvas id="canvas_refe" width="800" height="512" style="display: block; background-color: black ;"></canvas>
+                                </div></td>       
+                              </tr>
+                            <tr>
+                        
+                              <td><div id = "user">
+                                <p id = "usr_name">User Recording</p>
+                                <div id = "button_canvas_usr">
+                                    <!--<input type="file" accept="audio/*"> -->
+                                        <button id = "usr1" onclick="play_usr()" disabled>Start</button>
+                                        <button id = "usr2" onclick="pause_usr()" disabled>pause</button>
+                                        <button id = "usr3" onclick="stop_usr()" disabled>Stop</button>
+                                        <br><br>
+                                        <canvas id="canvas_usr" width="800" height="512" style="display: block; background-color: black ;"></canvas>
+                                </div></td>        
+                            </tr>
+                            <tr>
+                             
+                              <td>
+                                
+                                <canvas id="myCanvas" width="800" height="80" style="border:1px solid #d3d3d3;">
+                               </canvas>
+                                <script src="scorevisualizer.js"></script>
+
+                            <!--<script>
+                                var img = new Image();
+                                img.src = "staff.png";
+                                img.onload=function(){
+                                    var c=document.getElementById("myCanvas");
+                                  var ctx=c.getContext("2d");
+                                  ctx.drawImage(img,0,0,500,60);
+                                };
+
+                                var c=document.getElementById('myCanvas');
+                                var ctx=c.getContext('2d');
+                                ctx.fillStyle='#000000';
+                                ctx.fillRect(20,20,10,10);
+                              </script>
+
+                            -->
+
+                              </td>        
+                            </tr>
+                            </table>
+                            <br>
+
+                            <div style="position:relative">
+                              <div style="width:800px;">
+                                <div id="myGrid" style="width:100%;height:100px;"></div>
+                              </div>
+                            </div>
+
+                            <script id="itemDetailsTemplate" type="text/x-jquery-tmpl">
+                              <div class='item-details-form'>
+                                {{each columns}}
+                                <div class='item-details-label'>
+                                  ${name}
+                                </div>
+                                <div class='item-details-editor-container' data-editorid='${id}'></div>
+                                {{/each}}
+
+                                <hr/>
+                                <div class='item-details-form-buttons'>
+                                  <button data-action='save'>Save</button>
+                                  <button data-action='cancel'>Cancel</button>
+                                </div>
+                              </div>
+                            </script>
+
+                            <div id = "button">
+                                <button id = "submit" onclick="DetectSelection()">Submit</button>
+                                <button onclick = "startloadref()">Load Reference Recording</button>
+                                <button onclick = "startloadusr()">Load User Recording</button>
+
+                            </div>
+                      </div>
+              
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Custom JavaScript for the Menu Toggle -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+    </script>
+    
+    <script src="audio_ref2.js"></script>
+    <script src = "audio_usr2.js"></script>
+    <script src = "grid.js"></script>
+
+</body>
+</html>
