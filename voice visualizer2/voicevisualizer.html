@@ -1,0 +1,140 @@
+<html>
+	<head>
+		<title>Voice Visualizer: Bell Song</title>
+
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="styles/sidebar.css" />
+		<link rel="stylesheet" type="text/css" href="styles/VisualizerStyle.css" />
+		<link rel="stylesheet" type="text/css" href="styles/slick.grid.css" />
+		<link rel="stylesheet" type="text/css" href="styles/jquery-ui-1.8.16.custom.css" />
+		<link rel="stylesheet" type="text/css" href="styles/examples.css" />
+		<link rel="stylesheet" type="text/css" href="styles/slick.columnpicker.css" />
+		
+		<!-- JavaScript -->
+		<script type="text/javascript" src="scripts/jquery-2.1.1.min.js"></script>
+
+      
+		<!-- Scripts for Slick Grid -->
+		<script type="text/javascript" src="scripts/firebugx.js"></script>
+		<script type="text/javascript" src="scripts/jquery-ui-1.8.16.custom.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.event.drag-2.2.js"></script>
+		<script type="text/javascript" src="scripts/jquery.tmpl.min.js"></script>
+		<script type="text/javascript" src="scripts/slick.core.js"></script>
+		<script type="text/javascript" src="scripts/slick.cellrangeselector.js"></script>
+		<script type="text/javascript" src="scripts/slick.cellselectionmodel.js"></script>
+		<script type="text/javascript" src="scripts/slick.formatters.js"></script>
+		<script type="text/javascript" src="scripts/slick.editors.js"></script>
+		<script type="text/javascript" src="scripts/slick.grid.js"></script>
+		<script type="text/javascript" src="scripts/slick.compositeeditor.js"></script>      
+
+		
+		<!-- JavaScript -->
+		<script type="text/javascript" src="scripts/chroma.js"></script>
+		<script type="text/javascript" src="scripts/voicevisualizer.js"></script>
+		<script type="text/javascript" src="scripts/recorder.js"></script>
+		<script type="text/javascript" src="scripts/recorderWorker.js"></script>
+		<!--
+		<script type="text/javascript" src="audio_ref2.js"></script>
+		<script type="text/javascript" src="audio_usr2.js"></script>
+		-->
+		<script type="text/javascript" src="scripts/grid.js"></script>
+		
+        <script id="itemDetailsTemplate" type="text/x-jquery-tmpl">
+			<div class='item-details-form'>
+				{{each columns}}
+					<div class='item-details-label'>
+						${name}
+					</div>
+					<div class='item-details-editor-container' data-editorid='${id}'></div>
+				{{/each}}
+
+                <hr/>
+                
+				<div class='item-details-form-buttons'>
+                    <button data-action='save'>Save</button>
+					<button data-action='cancel'>Cancel</button>
+				</div>
+			</div>
+        </script>
+		
+    </head>
+
+    <body class="visualizer">
+        
+        <div id="wrapper">
+          <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li><a href="../voice Visualizer/home.html">Home</a>
+                </li>
+                <li><a href="../voice Visualizer/WarmupChoose.html">Warmups</a>
+                </li>
+                <li><a href="../voice Visualizer/LearnChoose.html">Learn and Review</a>
+                </li>
+                <li><a href="../voice Visualizer/notimplemented.html">Sheet Music</a>
+                </li>
+                <li><a href="../voice Visualizer/notimplemented.html">Notebook</a>
+                </li>
+                <li><a href="../voice Visualizer/notimplemented.html">Tutorial</a>
+                </li>
+                <li><a href="../voice Visualizer/notimplemented.html">Settings</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+		
+			<h2 class="spectrograph"><a href="www.lunyang.comoj.com/voice Visualizer/WarmupChoose.html">Warmup</a> &gt;&gt; Spectrograph</h2>
+			<h2 class="spectrograh_name">Arpeggio</h2>
+
+			<div id="scores">
+				
+				<!--<div class="float-buttons">
+					<button id="btnAnalyze" >Analyze</button>
+					<button id="btnSegment" >Segment</button>
+				</div>
+-->
+				
+				<div id="scoreImage">
+					<img src="images/warmupscore.png" id="warmupscore" />
+				</div>
+				
+				<div>
+					<h2 id="usr_name">User Recording</h2>
+					<div class="float-buttons">
+						<button id="usrRecord">Record</button>
+						<button id="usrPlay">Play</button>
+						<button id="usrStop">Stop</button>
+					</div>
+					<canvas id="canvas_usr" width="800" height="260" ></canvas>
+				</div>
+
+				<div>
+					<h2 id="ref_name">Reference Recording</h2>
+					<div class="float-buttons">
+						<button id="refPlay">Play</button>
+						<button id="refStop">Stop</button>
+					</div>
+					<canvas id="canvas_ref" width="800" height="260" ></canvas>
+				</div>                             
+
+				<div style="width:800px; margin:0 auto;">
+					<div id="myGrid" style="width:100%;height:100px;"></div>
+				</div>
+
+				<div id="button" >
+					<button id="submit" onclick="DetectSelection()">Submit</button>
+					<button onclick="startloadref()">Load Reference Recording</button>
+					<!--
+<button onclick="startloadusr()">Load User Recording</button>
+-->
+				</div>
+			</div>
+        </div>
+
+    </div>
+    
+
+
+</body></html>

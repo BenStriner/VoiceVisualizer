@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <title>Spectrograph:Bell Song</title>
+
+      <link rel="stylesheet" href="styles/sidebar.css">
+      <link rel="stylesheet" href="styles/VisualizerStyle.css" type="text/css">
+      <link rel="stylesheet" href="slickfolder/slick.grid.css" type="text/css"/>
+      <link rel="stylesheet" href="slickfolder/css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css"/>
+      <link rel="stylesheet" href="slickfolder/examples/examples.css" type="text/css"/>
+      <link rel="stylesheet" href="slickfolder/controls/slick.columnpicker.css" type="text/css"/>
+        <!-- JavaScript -->
+      <script src="jquery-2.1.0.js"></script>
+      <script type="text/javascript" src="scripts/jquery-1.8.0.min.js"></script>
+      <script type="text/javascript" src="scripts/chroma.js"></script>
+
+      
+      <!-- scripts for slick grid -->
+      <script src="slickfolder/lib/firebugx.js"></script>
+
+      <script src="slickfolder/lib/jquery-1.7.min.js"></script>
+      <script src="slickfolder/lib/jquery-ui-1.8.16.custom.min.js"></script>
+      <script src="slickfolder/lib/jquery.event.drag-2.2.js"></script>
+      <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+      <script src="slickfolder/slick.core.js"></script>
+      <script src="slickfolder/plugins/slick.cellrangeselector.js"></script>
+      <script src="slickfolder/plugins/slick.cellselectionmodel.js"></script>
+      <script src="slickfolder/slick.formatters.js"></script>
+      <script src="slickfolder/slick.editors.js"></script>
+      <script src="slickfolder/slick.grid.js"></script>
+      <script src="slickfolder/slick.compositeeditor.js"></script>      
+
+      <style>
+      .cell-title {
+        font-weight: bold;
+      }
+
+      .cell-effort-driven {
+        text-align: center;
+      }
+
+      .item-details-form {
+        z-index: 10000;
+        display: inline-block;
+        border: 1px solid black;
+        margin: 8px;
+        padding: 10px;
+        background: #efefef;
+        -moz-box-shadow: 0px 0px 15px black;
+        -webkit-box-shadow: 0px 0px 15px black;
+        box-shadow: 0px 0px 15px black;
+
+        position: absolute;
+        top: 10px;
+        left: 150px;
+      }
+
+      .item-details-form-buttons {
+        float: right;
+      }
+
+      .item-details-label {
+        margin-left: 10px;
+        margin-top: 20px;
+        display: block;
+        font-weight: bold;
+      }
+
+      .item-details-editor-container {
+        width: 200px;
+        height: 20px;
+        border: 1px solid silver;
+        background: white;
+        display: block;
+        margin: 10px;
+        margin-top: 4px;
+        padding: 0;
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+    </style>
+
+    <style type="text/css" rel="stylesheet">
+    .slickgrid_921946 .slick-header-column { 
+      left: 1000px;
+       } 
+
+    .slickgrid_921946 .slick-top-panel { 
+      height:25px;
+       } 
+
+     .slickgrid_921946 .slick-headerrow-columns { 
+      height:25px; 
+      } 
+
+    .slickgrid_921946 .slick-cell { 
+      height:20.18181824684143px; 
+      } 
+
+    .slickgrid_921946 .slick-row { 
+      height:25px;
+       } 
+</style>
+
+      <link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/js/page_context.js">
+        
+
+      </script></head>
+
+    <body screen_capture_injected="true">
+        <h2 class="spectrograph"><a href="LearnChoose.html">Learn and Review</a> &gt;&gt; Spectrograph</h2>
+        <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li><a href="home.html">Home</a>
+                </li>
+                <li><a href="WarmupChoose.html">Warmups</a>
+                </li>
+                <li><a href="LearnChoose.html">Learn and Review</a>
+                </li>
+                <li><a href="notimplemented.html">Sheet Music</a>
+                </li>
+                <li><a href="notimplemented.html">Notebook</a>
+                </li>
+                <li><a href="notimplemented.html">Tutorial</a>
+                </li>
+                
+                <li><a href="notimplemented.html">Settings</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+        <h2 class="spectrograh_name">Bell Song</h2>
+
+            <!-- Keep all page content within the page-content inset div! -->
+            <div class="page-content inset">
+                <div class="row" style="margin:0 auto;">
+                    <div class="col-md-12">
+                            <table style="width:800px; align:center">
+                              <tbody><tr>
+                                <td colspan="2">
+                                    <div id="scoreImage">
+                                    <img src="images/LakmeSpectroScore.png" id="SpectroScore"> 
+                                  <script src="scorevisualizer.js"></script>
+                                </td>        
+                              </tr>
+
+                            <div id="urlExp"></div>
+
+                            <div ><center>
+                            <form><input type="checkbox" onclick="selectFunAnalyze()"> Analyze
+                                  <input type="checkbox" onclick="selectFunSegment()">Segment  
+                                </center>
+                            </form>
+                            </div>
+                          </td>
+                           <br>
+
+                              <tr>
+                                <td id = "td_usr">
+                                  <h2 id="usr_name">User Recording</h2>
+                                  <div id="button_canvas_usr" style="position:relative; align:right;">
+                                          <button id="usr1" onclick="play_usr()" disabled="">Start</button>
+                                          <button id="usr3" onclick="stop_usr()" disabled="">Stop</button>
+                                  </div>
+                                  
+                                  <canvas  id="canvas_usr" width="800" height="260" style="display: block; background-color: black ;"></canvas>
+                              	  
+                                </td>
+                              </tr>
+                            
+                            <tr>
+                              <td>
+                                <h2 id="ref_name">Reference Recording</h2>
+                                <div id="button_canvas_ref">
+                                    <button id="ref1" onclick="play()" disabled="">Start</button>
+                                    <button id="ref3" onclick="stop()" disabled="">Stop</button>
+                                </div>
+                                
+                                <canvas id="canvas_refe" width="800" height="260" style="display: block; background-color: black ;"></canvas>
+                            	
+                              </td>                             
+       
+                            </tr>
+                            </tbody></table>
+                            <br>
+
+                            <div style="position:relative">
+                              <div style="width:800px; margin:0 auto;">
+                                <div id="myGrid" style="width:100%;height:100px;"></div>
+                              </div>
+                            </div>
+
+                            <script id="itemDetailsTemplate" type="text/x-jquery-tmpl">
+                              <div class='item-details-form'>
+                                {{each columns}}
+                                <div class='item-details-label'>
+                                  ${name}
+                                </div>
+                                <div class='item-details-editor-container' data-editorid='${id}'></div>
+                                {{/each}}
+
+                                <hr/>
+                                <div class='item-details-form-buttons'>
+                                  <button data-action='save'>Save</button>
+                                  <button data-action='cancel'>Cancel</button>
+                                </div>
+                              </div>
+                            </script>
+
+                            <div id="button" style="width:800px;margin:0 auto;">
+                                <button id="submit" onclick="DetectSelection()">Submit</button>
+                                <button onclick="startloadref()">Load Reference Recording</button>
+                                <button onclick="startloadusr()">Load User Recording</button>
+
+                            </div>
+                      </div>
+              
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Custom JavaScript for the Menu Toggle -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+    </script>
+    
+    <script src="scripts/audio_ref2.js"></script>
+    <script src="scripts/audio_usr2.js"></script>
+    <script src="scripts/grid.js"></script>
+
+<script>
+                      
+  function selectFunAnalyze(){
+
+    var urlPhoto = "images/LakmeSpectroAnalyzeScore.png";
+    var urlExp = "images/LakmeSpectro_Analyze_ref1.png";
+    var urlRef = "images/LakmeSpectro_Analyze_exp1.png";
+
+    document.getElementById("SpectroScore").src=urlPhoto;
+
+    draw_Image_Analyze();
+  };
+
+  function selectFunSegment(){
+
+    var urlPhoto= "images/LakmeSpectroSegmentScore.png"; 
+    document.getElementById("SpectroScore").src=urlPhoto;
+
+    draw_Image_Segment();
+
+   };
+
+
+
+  function draw_Image_Analyze() {
+
+    var imgExp = new Image;
+    var imgRef = new Image;
+
+    //alert("create new image");
+
+    imgRef.src = "images/LakmeSpectro_Analyze_ref.png";
+    imgExp.src = "images/LakmeSpectro_Analyze_exp.png";  
+    // alert("src new image");
+
+
+    var a_canvas = document.getElementById("canvas_usr");
+    var a_context = a_canvas.getContext("2d");
+    a_context.drawImage(imgExp, 0, 0); //draw new image
+    
+    var b_canvas = document.getElementById("canvas_refe");
+    var b_context = b_canvas.getContext("2d");
+    b_context.drawImage(imgRef, 0, 0); //draw new image
+
+   }
+
+
+
+  function draw_Image_Segment() {
+
+    var imgExp = new Image();
+    var imgRef = new Image();
+
+    imgRef.src = "images/LakmeSpectro_Segment_ref.png";
+    imgExp.src = "images/LakmeSpectro_Segment_exp.png";  
+
+    var a_canvas = document.getElementById("canvas_usr");
+    var a_context = a_canvas.getContext("2d");
+    a_context.drawImage(imgExp, 0, 0); //draw new image
+
+    var b_canvas = document.getElementById("canvas_refe");
+    var b_context = b_canvas.getContext("2d");
+    b_context.drawImage(imgRef, 0, 0); //draw new image
+
+   }
+
+ </script>
+
+ <!--scripts for canvas click event listenr -->
+   <script type="text/javascript">
+
+
+  function popitup(url) 
+  {
+    newwindow=window.open(url,'name','height=300,width=400');
+    if (window.focus) {newwindow.focus()}
+    return false;
+  }
+
+</script>
+
+<!-- check the positon of the mouse and make the place clickable -->
+
+
+<!-- scripts for canvas click event listenr -->
+<script type="text/javascript">
+var x1_min = 585, x1_max = 720, y1_min = 531, y1_max = 719;
+var x2_min = 868, x2_max = 997, y2_min = 531, y2_max = 719;
+var x3_min = 1036, x3_max = 1231, y3_min = 531, y3_max = 719;
+
+  document.addEventListener("DOMContentLoaded", init, false);
+
+  function init()
+  {
+    var canvas = document.getElementById("canvas_usr");
+    canvas.addEventListener("mousedown", getPosition, false);
+   
+  }
+
+
+
+  function getPosition(event)
+  {
+    var x = new Number();
+    var y = new Number();
+     var canvas = document.getElementById("canvas_usr");
+    
+    if (event.x != undefined && event.y != undefined)
+    {
+      x = event.pageX;
+      y = event.pageY;
+//alert("pagex:" + event.pageX + "papey:" + event.pageY);
+     }
+    else // Firefox method to get the position
+    {
+      x = event.clientX + document.body.scrollLeft +
+          document.documentElement.scrollLeft;
+      y = event.clientY + document.body.scrollTop +
+          document.documentElement.scrollTop;
+    }
+    
+   checkclickable(x,y);
+  }
+
+  function checkclickable(x,y)
+  {
+    if(x<x1_max && x>x1_min && y<y1_max && y>y1_min)
+    {
+       popitup("analysis result.html");
+    }
+    if(x<x2_max && x>x2_min && y<y2_max && y>y2_min)
+    {
+       popitup("analysis result2.html");
+    }
+    if(x<x3_max && x>x3_min && y<y3_max && y>y3_min)
+    {
+       popitup("analysis result3.html");
+    }
+
+  }
+
+  function popitup(url) 
+  {
+    newwindow=window.open(url,'name','height=350,width=400');
+    if (window.focus) {newwindow.focus()}
+    return false;
+  }
+
+</script>
+<!-- Hosting24 Analytics Code -->
+<script type="text/javascript" src="./SlickGrid example  CompositeEditor_files/count.php"></script>
+<!-- End Of Analytics Code -->
+</body></html>
